@@ -35,3 +35,40 @@ D:\C# Programs\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.dll
 D:\C# Programs\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.pdb
 D:\C# Programs\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.genruntimeconfig.cache
 D:\C# Programs\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.csproj.CopyComplete
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.exe
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.deps.json
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.runtimeconfig.json
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.runtimeconfig.dev.json
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.dll
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.pdb
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.Views.dll
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\bin\Debug\netcoreapp3.1\Cinema.Views.pdb
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.csprojAssemblyReference.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.AssemblyInfoInputs.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.AssemblyInfo.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.RazorAssemblyInfo.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.RazorAssemblyInfo.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\staticwebassets\Cinema.StaticWebAssets.Manifest.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\staticwebassets\Cinema.StaticWebAssets.xml
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\scopedcss\bundle\Cinema.styles.css
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.TagHelpers.input.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.TagHelpers.output.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.RazorCoreGenerate.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.RazorTargetAssemblyInfo.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.RazorTargetAssemblyInfo.cs
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.Views.pdb
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.dll
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.pdb
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.genruntimeconfig.cache
+C:\Users\pc\Documents\C# 3 сем\cinema-semestr-work\cinema-semestr-work\Cinema\Cinema\obj\Debug\netcoreapp3.1\Cinema.csproj.CopyComplete

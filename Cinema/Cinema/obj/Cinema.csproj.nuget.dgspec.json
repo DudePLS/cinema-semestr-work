@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj": {}
+    "C:\\Users\\pc\\Documents\\C# 3 сем\\cinema-semestr-work\\cinema-semestr-work\\Cinema\\Cinema\\Cinema.csproj": {}
   },
   "projects": {
-    "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj": {
+    "C:\\Users\\pc\\Documents\\C# 3 сем\\cinema-semestr-work\\cinema-semestr-work\\Cinema\\Cinema\\Cinema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj",
+        "projectUniqueName": "C:\\Users\\pc\\Documents\\C# 3 сем\\cinema-semestr-work\\cinema-semestr-work\\Cinema\\Cinema\\Cinema.csproj",
         "projectName": "Cinema",
-        "projectPath": "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj",
-        "packagesPath": "C:\\Users\\alexm\\.nuget\\packages\\",
-        "outputPath": "D:\\C# Programs\\Cinema\\Cinema\\obj\\",
+        "projectPath": "C:\\Users\\pc\\Documents\\C# 3 сем\\cinema-semestr-work\\cinema-semestr-work\\Cinema\\Cinema\\Cinema.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc\\Documents\\C# 3 сем\\cinema-semestr-work\\cinema-semestr-work\\Cinema\\Cinema\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\alexm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
