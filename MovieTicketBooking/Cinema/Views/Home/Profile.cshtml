@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+}
+
+<head>
+    <link href="~/css/profile.css" rel="stylesheet">
+</head>
+
+<div class="container light-style flex-grow-1 container-p-y">
+
+    <h4 class="font-weight-bold py-3 mb-4">
+        Профиль
+    </h4>
+
+    <div class="card overflow-hidden">
+        <div class="row no-gutters row-bordered row-border-light">
+            <div class="col-md-3 pt-0">
+                <div class="list-group list-group-flush account-settings-links">
+                    <a class="list-group-item list-group-item-action active" data-toggle="list" href="#general">Личные данные</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#change-profile">Изменение пароля</a>
+                    <a class="list-group-item list-group-item-action" data-toggle="list" href="#tickets">Билеты</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <div class="tab-pane fade active show" id="general">
+
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label class="form-label">Имя</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Почта</label>
+                                <input type="text" class="form-control" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <a class="form-label">Текущая скидка: </a>
+                            </div>
+
+                            <div class="text-right mt-3">
+                                <button type="button" class="btn btn-primary">Сохранить изменения</button>&nbsp;
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="change-profile">
+                        <div class="card-body pb-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Текущий пароль</label>
+                                <input type="password" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Новый пароль</label>
+                                <input type="password" class="form-control">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Повторите новый пароль</label>
+                                <input type="password" class="form-control">
+                            </div>
+
+                            <div class="text-right mt-3">
+                                <button type="button" class="btn btn-primary">Сохранить изменения</button>&nbsp;
+                            </div>
+
+                        </div>
+                    </div>    
+                    
+                    <div class="tab-pane fade" id="tickets">
+                        <div class="card-body pb-2">
+
+                            <h6 class="mb-4">Activity</h6>
+
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked="">
+                                    <span class="switcher-indicator">
+                                        <span class="switcher-yes"></span>
+                                        <span class="switcher-no"></span>
+                                    </span>
+                                    <span class="switcher-label">Email me when someone comments on my article</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked="">
+                                    <span class="switcher-indicator">
+                                        <span class="switcher-yes"></span>
+                                        <span class="switcher-no"></span>
+                                    </span>
+                                    <span class="switcher-label">Email me when someone answers on my forum thread</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input">
+                                    <span class="switcher-indicator">
+                                        <span class="switcher-yes"></span>
+                                        <span class="switcher-no"></span>
+                                    </span>
+                                    <span class="switcher-label">Email me when someone follows me</span>
+                                </label>
+                            </div>
+                        </div>
+                        <hr class="border-light m-0">
+                        <div class="card-body pb-2">
+
+                            <h6 class="mb-4">Application</h6>
+
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked="">
+                                    <span class="switcher-indicator">
+                                        <span class="switcher-yes"></span>
+                                        <span class="switcher-no"></span>
+                                    </span>
+                                    <span class="switcher-label">News and announcements</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input">
+                                    <span class="switcher-indicator">
+                                        <span class="switcher-yes"></span>
+                                        <span class="switcher-no"></span>
+                                    </span>
+                                    <span class="switcher-label">Weekly product updates</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="switcher">
+                                    <input type="checkbox" class="switcher-input" checked="">
+                                    <span class="switcher-indicator">
+                                        <span class="switcher-yes"></span>
+                                        <span class="switcher-no"></span>
+                                    </span>
+                                    <span class="switcher-label">Weekly blog digest</span>
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
