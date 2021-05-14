@@ -81,3 +81,4 @@ D:\C# Programs\Cinema\Cinema\bin\Debug\netcoreapp3.1\Humanizer.dll
 D:\C# Programs\Cinema\Cinema\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 D:\C# Programs\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 D:\C# Programs\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+D:\C# Programs\Cinema\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Movie.cshtml.g.cs
