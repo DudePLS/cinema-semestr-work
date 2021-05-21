@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using SixLabors.ImageSharp;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Models
 {
@@ -14,6 +15,8 @@ namespace Cinema.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+
+        [Column(TypeName = "Date")]
         public DateTime ReleaseDate { get; set; }
         public byte[] Image { get; set; }
 
