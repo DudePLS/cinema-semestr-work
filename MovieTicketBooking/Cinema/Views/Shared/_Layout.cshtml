@@ -32,18 +32,26 @@
                         @{
                             if (User.Identity.IsAuthenticated)
                             {
-                                User user = db.Users.FirstOrDefault(u => u.Email == User.Identity.Name);
+                                
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" id="profile" asp-area="" asp-controller="Home" asp-action="Profile">@user.Name</a>
+                                    <a class="nav-link text-dark" id="profile" asp-area="" asp-controller="Home" asp-action="Profile"></a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-dark" id="logout" asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
+                                    <form method="post" asp-controller="Account" asp-action="Logout">
+                                        <input id="logout" type="submit" value="Выход" />
+                                    </form>
                                 </li>
                             }
                             else
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" id="login" asp-area="" asp-controller="Account" asp-action="Login">Войти</a>
+                                    <a class="nav-link text-dark" id="login" asp-controller="Account" asp-action="Login">Войти</a>
+                                </li>
+                            }
+                            if (User.IsInRole("admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-controller="Admin" asp-action="Dashboard">Админ панель</a>
                                 </li>
                             }
                         }

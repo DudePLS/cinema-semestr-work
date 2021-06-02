@@ -14,6 +14,7 @@ namespace Cinema.ViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+        [Required]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Введённые пароли не совпадают")]
         public string ConfirmPassword { get; set; }

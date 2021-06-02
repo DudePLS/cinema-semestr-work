@@ -29,5 +29,9 @@ namespace Cinema.Controllers
             }
             return View(movie);
         }
+        public IActionResult Session()
+        {
+            return View();
+        }
     }
 }

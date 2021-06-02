@@ -30,7 +30,7 @@
         <input id="inputFirstname" class="form-control" asp-for="Name" placeholder="Имя" required autofocus>
         <input id="inputEmail" class="form-control" asp-for="Email" placeholder="Email" required autofocus>
         <input type="password" id="inputPassword" class="form-control" asp-for="Password" placeholder="Пароль" required>
-        <input type="password" id="confirmPassword" class="form-control" asp-for="ConfirmPassword" placeholder="Повторите пароль" required> <span asp-validation-for="ConfirmPassword" />
+        <input type="password" id="confirmPassword" class="form-control" asp-for="ConfirmPassword" placeholder="Повторите пароль" required>
         <button class="btn btn-lg btn-primary btn-block" type="submit" id="signupbut">Регистрация</button>
         <a asp-action="Login" asp-controller="Account">Войти</a>
         <p class="mt-5 mb-3 text-muted">&copy; 2020</p>

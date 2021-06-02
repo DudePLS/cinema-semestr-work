@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Movie>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.80.0">
+    <title>Carousel Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/assets/dist/css/bootstrap1.min.css" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    </style>
+
+    <link href="~/css/dashboard.css" rel="stylesheet">
+</head>
+
+
+<div class="album py-5">
+    <div class="container">
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            @foreach (var item in Model)
+            {
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                        <div>
+                            <p class="name">@item.Name</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <form method="get">
+                                        <button asp-controller="Admin" asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Редактировать</button>
+                                        <button asp-controller="Admin" asp-action="AddSession" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Добавить сеанс</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            <div>
+                <form method="get">
+                    <button asp-controller="Admin" asp-action="AddMovie" type="submit" class="btn btn-sm btn-outline-secondary" id="add">Добавить</button>
+                    <button asp-controller="Admin" asp-action="AddCinema" type="submit" class="btn btn-sm btn-outline-secondary" id="add">Добавить кинотеатр</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

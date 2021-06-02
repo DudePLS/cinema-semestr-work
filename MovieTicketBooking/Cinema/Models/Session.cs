@@ -11,13 +11,18 @@ namespace Cinema.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Column(TypeName = "date")]
         public DateTime Date { get; set; }
+
+        [Column(TypeName = "time")]
+        public TimeSpan Time { get; set; }
 
         public int MovieId { get; set; }
         public Movie Movie { get; set; }
 
         public int CinemaId { get; set; }
-        public Cinema Cinema { get; set; }
+        public Cinema1 Cinema { get; set; }
         
         public int Hall { get; set; }
         public List<Seat> TakenSeats { get; set; }
