@@ -38,7 +38,14 @@ namespace Cinema
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
-
+            services.AddAuthentication().
+                AddGoogle(options =>
+                {
+                    options.ClientId = "237695797160-pgh9hnirdfj3ebqjison2p7mgb3kpgu7.apps.googleusercontent.com";
+                    options.ClientSecret = "j_woH9pu67gL_LtG_C8hWpZ4";
+                    //options.CallbackPath = "";
+                });
+                
             services.AddControllersWithViews();
         }
 

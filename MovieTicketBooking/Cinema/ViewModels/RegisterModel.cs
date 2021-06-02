@@ -8,9 +8,10 @@ namespace Cinema.ViewModels
         public string Name { get; set; }
 
         [Required]
+        [RegularExpression(@"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$", ErrorMessage = "Invalid email format")]
         public string Email { get; set; }
 
-        [Required]
+        [Required, MinLength(8, ErrorMessage = "Name must contain at least 8 characters")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
