@@ -209,3 +209,13 @@ C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\obj\D
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\obj\Debug\netcoreapp3.1\Cinema.pdb
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\obj\Debug\netcoreapp3.1\Cinema.genruntimeconfig.cache
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Connections.Abstractions.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.SignalR.Common.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Home\Chat.cshtml.g.cs

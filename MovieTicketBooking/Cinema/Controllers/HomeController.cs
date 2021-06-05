@@ -47,5 +47,10 @@ namespace Cinema.Controllers
         {
             return View();
         }
+
+        public IActionResult Chat()
+        {
+            return View();
+        }
     }
 }
