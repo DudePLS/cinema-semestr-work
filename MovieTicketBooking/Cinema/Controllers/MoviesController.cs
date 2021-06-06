@@ -71,5 +71,7 @@ namespace Cinema.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction("Profile", "Home");
         }
+
+   
     }
 }
