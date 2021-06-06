@@ -23,20 +23,23 @@
         </div>
         <div class="screen"></div>
         <div class="seat__arrangement">
-            @{
+            @{ int a = 0;
                 for (int i = 0; i < 9; i++)
                 {
                     <div class="row">
                         @for (int j = 0; j < 10; j++)
                         {
-                            if (Model.session.AvailableSeats.FirstOrDefault(s => s.Row == i + 1 && s.seat == j + 1) != null)
+                            if (Model.session.AvailableSeats.FirstOrDefault(s => s.Row == i + 1 && s.seat == j + 1) == null)
                             {
                                 <div class="seat seat-taken"></div>
                             }
                             else
                             {
-                                <input type="checkbox" class="seat" name="bookedseats" value="@Model.seats[(i+1)*(j+1)-1]" />
+                                <input type="hidden" asp-for="@Model.seats[a].row" />
+                                <input type="hidden" asp-for="@Model.seats[a].seat" />
+                                <input type="checkbox" class="seat" asp-for="@Model.seats[a].selected" />
                             }
+                            a++;
                         }
                     </div>
                 }

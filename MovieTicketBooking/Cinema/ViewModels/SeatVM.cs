@@ -10,5 +10,6 @@ namespace Cinema.ViewModels
     {
         public int row { get; set; }
         public int seat { get; set; }
+        public bool selected { get; set; }
     }
 }

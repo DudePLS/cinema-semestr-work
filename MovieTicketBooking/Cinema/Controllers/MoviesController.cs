@@ -58,20 +58,23 @@ namespace Cinema.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Buy(int sessionId, List<SeatVM> bookedseats)
+        public async Task<IActionResult> Buy(int sessionId, BookingModel model)
         {
             Session session = _context.Sessions.FirstOrDefault(s => s.Id == sessionId);
             User user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-            TicketBooking ticket = new TicketBooking { UserId = user.Id, User = user,Session = session, SessionId = sessionId, TotalCost = session.TicketPrice * bookedseats.Count };
-            _context.Add(ticket);
-            foreach(var seat in bookedseats)
+            TicketBooking ticket = new TicketBooking { UserId = user.Id, User = user,Session = session, SessionId = sessionId };
+            foreach(var seat in model.seats)
             {
-                _context.Add(new BookedSeat { Row = seat.row, seat = seat.seat, Ticket = ticket, TicketId = ticket.Id });
+                if (seat.selected)
+                {
+                    _context.Add(new BookedSeat { Row = seat.row, seat = seat.seat, Ticket = ticket, TicketId = ticket.Id });
+                    ticket.TotalCost += session.TicketPrice;
+                    Seat remseat = _context.Seats.FirstOrDefault(s => s.Row == seat.row && s.seat == seat.seat && s.Session == session && s.SessionId == sessionId);
+                    _context.Seats.Remove(remseat);
+                }
             }
             await _context.SaveChangesAsync();
             return RedirectToAction("Profile", "Home");
         }
-
-   
     }
 }

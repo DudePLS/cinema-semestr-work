@@ -13,12 +13,52 @@ namespace CustomIdentityApp.Controllers
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly DatabaseContext _context;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, DatabaseContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _context = context;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(ChangePasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+                if (user != null)
+                {
+                    var _passwordValidator =
+                        HttpContext.RequestServices.GetService(typeof(IPasswordValidator<User>)) as IPasswordValidator<User>;
+                    var _passwordHasher =
+                        HttpContext.RequestServices.GetService(typeof(IPasswordHasher<User>)) as IPasswordHasher<User>;
+
+                    IdentityResult result =
+                        await _passwordValidator.ValidateAsync(_userManager, user, model.NewPassword);
+                    if (result.Succeeded)
+                    {
+                        user.PasswordHash = _passwordHasher.HashPassword(user, model.NewPassword);
+                        await _userManager.UpdateAsync(user);
+                        return RedirectToAction("Profile", "Home");
+                    }
+                    else
+                    {
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Пользователь не найден");
+                }
+            }
+            return RedirectToAction("Profile", "Home");
+        }
+
         [HttpGet]
         public IActionResult Register()
         {

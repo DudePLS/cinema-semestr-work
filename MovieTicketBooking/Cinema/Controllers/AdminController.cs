@@ -55,6 +55,72 @@ namespace Cinema.Controllers
             return View(movie);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteMovie(int? id)
+        {
+            var movie = await _context.Movies.FindAsync(id);
+            _context.Movies.Remove(movie);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Dashboard));
+        }
+
+        public async Task<IActionResult> EditMovie(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var movie = await _context.Movies.FirstOrDefaultAsync(m => m.Id == id);
+            if (movie == null)
+            {
+                return NotFound();
+            }
+            return View(movie);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditMovie(int id, [Bind("Id,Name,Description,Genre,Rating,ReleaseDate")] Movie movie, MvViewModel mvm)
+        {
+            if (id != movie.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    byte[] imageData = null;
+                    if (mvm.Image != null)
+                    {
+                        using (var binaryReader = new BinaryReader(mvm.Image.OpenReadStream()))
+                        {
+                            imageData = binaryReader.ReadBytes((int)mvm.Image.Length);
+                        }
+                        movie.Image = imageData;
+                    }
+                    _context.Update(movie);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!MovieExists(movie.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Dashboard));
+            }
+            return View(movie);
+        }
+
         public IActionResult AddSession()
         {
             ViewBag.Cinemas = new SelectList(_context.Cinemas.ToList(), "Id", "Name");
@@ -99,6 +165,11 @@ namespace Cinema.Controllers
                 return RedirectToAction(nameof(Dashboard));
             }
             return View();
+        }
+
+        private bool MovieExists(int id)
+        {
+            return _context.Movies.Any(e => e.Id == id);
         }
     }
 }

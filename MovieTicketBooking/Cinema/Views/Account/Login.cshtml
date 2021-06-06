@@ -27,6 +27,7 @@
 <body class="text-center">
 
     <form class="form-signin" asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+        <input type="hidden" asp-for="ExternalLogins" />
         <h1 class="h3 mb-3 font-weight-normal">Пожалуйста, войдите</h1>
         <input id="inputEmail" class="form-control" asp-for="Username" placeholder="Username" required autofocus>
         <input type="password" id="inputPassword" class="form-control" asp-for="Password" placeholder="Пароль" required>

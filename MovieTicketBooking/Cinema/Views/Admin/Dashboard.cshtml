@@ -50,8 +50,11 @@
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
                                     <form method="get">
-                                        <button asp-controller="Admin" asp-action="Edit" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Редактировать</button>
+                                        <button asp-controller="Admin" asp-action="EditMovie" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Редактировать</button>
                                         <button asp-controller="Admin" asp-action="AddSession" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Добавить сеанс</button>
+                                    </form>
+                                    <form method="post">
+                                        <button asp-controller="Admin" asp-action="DeleteMovie" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Удалить</button>
                                     </form>
                                 </div>
                             </div>

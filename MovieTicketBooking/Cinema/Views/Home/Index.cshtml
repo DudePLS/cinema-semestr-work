@@ -49,7 +49,7 @@
             </div>
 
             <div class="carousel-item">
-                <img src="https://pbs.twimg.com/media/EV-SYHkX0AAWYn3.jpg:large">
+                <img src="https://pbs.twimg.com/media/EV-SYHkX0AAWYn3.jpg:large">  
             </div>
 
             <div class="carousel-item">
@@ -66,8 +66,6 @@
         </button>
     </div>
 
-  
-
     <a class="py-2 d-none d-md-inline-block" id="mvs" href="#">Сегодня</a>
     <a class="py-2 d-none d-md-inline-block" id="mvs" href="#">Скоро</a>
 
@@ -79,7 +77,12 @@
                 {
                     <div class="col">
                         <div class="card shadow-sm">
-                            <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" style="height: 200px;" />
+                            @{
+                                if (item.Image != null)
+                                {
+                                    <img src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Image))" />
+                                }
+                            }
                             <div>
                                 <p class="name">@item.Name</p>
                             </div>
@@ -88,7 +91,7 @@
                                     <div class="btn-group">
                                         <form method="get">
                                             <button asp-controller="Movies" asp-action="Movie" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Подробнее</button>
-                                            <button asp-controller="Movies" asp-action="Session" type="submit" class="btn btn-sm btn-outline-secondary">Расписание и билеты</button>
+                                            <button asp-controller="Movies" asp-action="Schedule" asp-route-id="@item.Id" type="submit" class="btn btn-sm btn-outline-secondary">Расписание и билеты</button>
                                         </form>
                                     </div>
                                 </div>
@@ -99,6 +102,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="~/assets/dist/js/bootstrap.bundle.min.js"></script>
 
