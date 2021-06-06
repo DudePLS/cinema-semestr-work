@@ -18,6 +18,7 @@ namespace Cinema.Models
         public string Rating { get; set; }
 
         [Column(TypeName = "Date")]
+        [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
         public byte[] Image { get; set; }
 

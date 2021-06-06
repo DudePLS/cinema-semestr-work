@@ -13,6 +13,7 @@ namespace Cinema.Models
         public int Id { get; set; }
 
         [Column(TypeName = "date")]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
 
         [Column(TypeName = "time")]
@@ -25,7 +26,7 @@ namespace Cinema.Models
         public Cinema1 Cinema { get; set; }
         
         public int Hall { get; set; }
-        public List<Seat> TakenSeats { get; set; }
+        public List<Seat> AvailableSeats { get; set; } = new List<Seat>();
         public int TicketPrice { get; set; }
 
         public List<TicketBooking> TicketBookings { get; set; }

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj": {}
+    "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj": {
+    "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj",
+        "projectUniqueName": "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj",
         "projectName": "Cinema",
-        "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj",
-        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\obj\\",
+        "projectPath": "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj",
+        "packagesPath": "C:\\Users\\alexm\\.nuget\\packages\\",
+        "outputPath": "D:\\C# Programs\\Cinema\\Cinema\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\alexm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -64,10 +61,6 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.5, )"
-            },
-            "SixLabors.ImageSharp": {
-              "target": "Package",
-              "version": "[1.0.3, )"
             }
           },
           "imports": [
@@ -88,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

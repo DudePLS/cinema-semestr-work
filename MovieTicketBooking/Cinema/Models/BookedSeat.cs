@@ -6,14 +6,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.Models
 {
-    public class Seat
+    public class BookedSeat
     {
         [Key]
         public int Id { get; set; }
         public int Row { get; set; }
         public int seat { get; set; }
 
-        public int SessionId { get; set; }
-        public Session Session { get; set; }
+        public int TicketId { get; set; }
+        public TicketBooking Ticket { get; set; }
     }
 }

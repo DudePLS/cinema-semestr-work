@@ -25,17 +25,18 @@
     <link href="~/css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-        <form class="form-signin" asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
-            <h1 class="h3 mb-3 font-weight-normal">Пожалуйста, войдите</h1>
-            <input id="inputEmail" class="form-control" asp-for="Username" placeholder="Username" required autofocus>
-            <input type="password" id="inputPassword" class="form-control" asp-for="Password" placeholder="Пароль" required>
-            <label asp-for="RememberMe"></label><br />
-            <input asp-for="RememberMe" />
-            <button class="btn btn-lg btn-primary btn-block" type="submit" id="signinbut">Войти</button>
-            <a asp-action="Register" asp-controller="Account">Регистрация</a>
-            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
-        </form>
-    
+
+    <form class="form-signin" asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+        <h1 class="h3 mb-3 font-weight-normal">Пожалуйста, войдите</h1>
+        <input id="inputEmail" class="form-control" asp-for="Username" placeholder="Username" required autofocus>
+        <input type="password" id="inputPassword" class="form-control" asp-for="Password" placeholder="Пароль" required>
+        <label asp-for="RememberMe"></label><br />
+        <input asp-for="RememberMe" />
+        <button class="btn btn-lg btn-primary btn-block" type="submit" id="signinbut">Войти</button>
+        <a asp-action="Register" asp-controller="Account">Регистрация</a>
+        <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
+    </form>
+
     <div class="col-md-6">
         <h1>External Login</h1>
         <hr />
@@ -61,5 +62,6 @@
             }
         }
     </div>
+
 </body>
 </html>

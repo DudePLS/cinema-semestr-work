@@ -2,6 +2,7 @@
 using Cinema.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -34,16 +35,19 @@ namespace Cinema.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddMovie([Bind("Id,Name,Descritpion,Genre,Rating,ReleaseDate")] Movie movie, MvViewModel mvm)
+        public async Task<IActionResult> AddMovie([Bind("Id,Name,Description,Genre,Rating,ReleaseDate")] Movie movie, MvViewModel mvm)
         {
             if (ModelState.IsValid)
             {
                 byte[] imageData = null;
-                using (var binaryReader = new BinaryReader(mvm.Image.OpenReadStream()))
+                if(mvm.Image != null)
                 {
-                    imageData = binaryReader.ReadBytes((int)mvm.Image.Length);
+                    using (var binaryReader = new BinaryReader(mvm.Image.OpenReadStream()))
+                    {
+                        imageData = binaryReader.ReadBytes((int)mvm.Image.Length);
+                    }
+                    movie.Image = imageData;
                 }
-                movie.Image = imageData;
                 _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Dashboard));
@@ -51,17 +55,26 @@ namespace Cinema.Controllers
             return View(movie);
         }
 
-        public IActionResult AddSession(int? id)
+        public IActionResult AddSession()
         {
+            ViewBag.Cinemas = new SelectList(_context.Cinemas.ToList(), "Id", "Name");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> AddSession(int id, [Bind("Date,Time,Hall,TicketPrice")] Session session)
+        public async Task<IActionResult> AddSession(int id, [Bind("CinemaId,MovieId,Date,Time,Hall,TicketPrice")] Session session)
         {
             if (ModelState.IsValid)
             {
+                for(int i = 0; i < 9; i++)
+                {
+                    for(int j = 0; j < 10; j++)
+                    {
+                        _context.Add(new Seat { Row = i+1, seat = j+1, Session=session, SessionId = session.Id });
+                    }
+                }
+                session.MovieId = id;
                 _context.Add(session);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Dashboard));

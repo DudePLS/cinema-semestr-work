@@ -1,157 +1,54 @@
-﻿<link rel='stylesheet' href='~/css/session.css'>
-<div class="container">
-    <div class="movie-ticket">
-        <p>Select a movie</p>
-        <select name="movie" id="movie">
-            <option value="10">Avengers: Endgame</option>
-            <option value="9">Spider-Man: Far from Home</option>
-            <option value="10">Harry Potter and the Philosopher's Stone</option>
-            <option value="12">The Hobbit: An Unexpected Journey</option>
+﻿@using Cinema.ViewModels
+@model BookingModel
+
+<link rel='stylesheet' href='~/css/session.css'>
+<form asp-controller="Movies" asp-action="Buy">
+    <div class="container">
+        <input type="hidden" name="sessionId" value="@Model.session.Id" />
+        <select name="movie" id="movie" value="@Model.session.TicketPrice">
         </select>
-    </div>
-    <div class="seat__availability">
-        <div class="seat__info">
-            <div class="seat seat-infoStyle"></div>
-            <div class="seat-type-name">Available</div>
+        <div class="seat__availability">
+            <div class="seat__info">
+                <div class="seat seat-infoStyle"></div>
+                <div class="seat-type-name">Available</div>
+            </div>
+            <div class="seat__info">
+                <div class="seat seat-infoStyle seat-taken"></div>
+                <div class="seat-type-name">Taken</div>
+            </div>
+            <div class="seat__info">
+                <div class="seat seat-infoStyle seat-selected"></div>
+                <div class="seat-type-name">Selected</div>
+            </div>
         </div>
-        <div class="seat__info">
-            <div class="seat seat-infoStyle seat-taken"></div>
-            <div class="seat-type-name">Taken</div>
+        <div class="screen"></div>
+        <div class="seat__arrangement">
+            @{
+                for (int i = 0; i < 9; i++)
+                {
+                    <div class="row">
+                        @for (int j = 0; j < 10; j++)
+                        {
+                            if (Model.session.AvailableSeats.FirstOrDefault(s => s.Row == i + 1 && s.seat == j + 1) != null)
+                            {
+                                <div class="seat seat-taken"></div>
+                            }
+                            else
+                            {
+                                <input type="checkbox" class="seat" name="bookedseats" value="@Model.seats[(i+1)*(j+1)-1]" />
+                            }
+                        }
+                    </div>
+                }
+            }
         </div>
-        <div class="seat__info">
-            <div class="seat seat-infoStyle seat-selected"></div>
-            <div class="seat-type-name">Selected</div>
-        </div>
-    </div>
-    <div class="screen"></div>
-    <div class="seat__arrangement">
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat"></div>
-        </div>
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-        </div>
-        <div class="row">
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
-            <div class="seat seat-taken"></div>
+        <div class="booking__details">
+            <div class="booking__cost">
+                <p>Seats Selected : <span class="seat__count"></span></p>
+                <p>Total Cost  : руб.<span class="total__cost"></span></p>
+            </div>
+            <button type="submit">Confirm</button>
         </div>
     </div>
-    <div class="booking__details">
-        <div class="booking__cost">
-            <p>Seats Selected : <span class="seat__count"></span></p>
-            <p>Total Cost  : $<span class="total__cost"></span></p>
-        </div>
-        <button>Confirm</button>
-    </div>
-</div>
+</form>
 <script src='~/js/session.js'></script>

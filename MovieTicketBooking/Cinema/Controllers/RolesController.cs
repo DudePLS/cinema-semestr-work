@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Cinema.Models;
 using Cinema.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cinema.Controllers
 {
+    [Authorize(Roles = "admin")]
     public class RolesController : Controller
     {
         RoleManager<IdentityRole> _roleManager;

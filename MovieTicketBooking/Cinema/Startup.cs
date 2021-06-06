@@ -38,6 +38,7 @@ namespace Cinema
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
+
             services.AddAuthentication().
                 AddGoogle(options =>
                 {
@@ -45,7 +46,7 @@ namespace Cinema
                     options.ClientSecret = "j_woH9pu67gL_LtG_C8hWpZ4";
                     //options.CallbackPath = "";
                 });
-                
+
             services.AddControllersWithViews();
         }
 

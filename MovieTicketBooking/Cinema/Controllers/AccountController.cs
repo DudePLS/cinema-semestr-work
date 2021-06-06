@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Cinema.ViewModels;
 using Cinema.Models;
 using Microsoft.AspNetCore.Identity;
-using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 namespace CustomIdentityApp.Controllers
 {
@@ -49,27 +49,6 @@ namespace CustomIdentityApp.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var result =
-                    await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
-                if (result.Succeeded)
-                {
-
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
-                }
-            }
-            return View(model);
-        }
- 
         [HttpGet]
         public async Task<IActionResult> Login(string returnUrl)
         {
@@ -81,7 +60,26 @@ namespace CustomIdentityApp.Controllers
             return View(model);
         }
 
-       
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Login(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var result =
+                    await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, false);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Неправильный логин и (или) пароль");
+                }
+            }
+            return View(model);
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()
@@ -93,7 +91,7 @@ namespace CustomIdentityApp.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public IActionResult ExternalLogin(string provider, string returnUrl) 
+        public IActionResult ExternalLogin(string provider, string returnUrl)
         {
             var redirectUrl = Url.Action("ExternalLoginCallback", "Account",
                                     new { ReturnUrl = returnUrl });
@@ -103,29 +101,29 @@ namespace CustomIdentityApp.Controllers
 
         [AllowAnonymous]
         public async Task<IActionResult>
-            ExternalLoginCallback(string returnUrl=null,string remoteError=null)
+            ExternalLoginCallback(string returnUrl = null, string remoteError = null)
         {
             returnUrl = returnUrl ?? Url.Content("~/");
-            
+
             LoginModel loginViewModel = new LoginModel
             {
                 ReturnUrl = returnUrl,
                 ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
             };
 
-            if (remoteError!=null)
+            if (remoteError != null)
             {
                 ModelState.AddModelError(string.Empty, $"Error from external provider:{ remoteError}");
                 return View("Login", loginViewModel);
             }
 
             var info = await _signInManager.GetExternalLoginInfoAsync();
-            if (info==null)
+            if (info == null)
             {
                 ModelState.AddModelError(string.Empty, "Error loading external login information.");
                 return View("Login", loginViewModel);
             }
-           // return View("Login", loginViewModel);
+            // return View("Login", loginViewModel);
 
             var signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider,
                                         info.ProviderKey, isPersistent: false, bypassTwoFactor: true);
@@ -134,7 +132,7 @@ namespace CustomIdentityApp.Controllers
             {
                 return LocalRedirect(returnUrl);
             }
-            else 
+            else
             {
                 var email = info.Principal.FindFirstValue(ClaimTypes.Email);
 
@@ -151,8 +149,8 @@ namespace CustomIdentityApp.Controllers
                         };
 
                         await _userManager.CreateAsync(user);
-                    }  
-                
+                    }
+
 
                     await _userManager.AddLoginAsync(user, info);
                     await _signInManager.SignInAsync(user, isPersistent: false);

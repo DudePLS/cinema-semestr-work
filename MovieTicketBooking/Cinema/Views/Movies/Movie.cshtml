@@ -33,9 +33,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                         </div>
                         <div class="desc1 span_3_of_2">
-                            <p class="movie_option"><strong>Дата выхода: </strong>@Model.ReleaseDate</p>
-                            <p class="movie_option"><strong>Жанр: </strong><a href="#">Adventure</a>
-                            <p class="movie_option"><strong>Ограничение по возрасту: </strong>13</p>
+                            <p class="movie_option"><strong>Дата выхода: </strong>@Html.DisplayFor(model => model.ReleaseDate)</p>
+                            <p class="movie_option"><strong>Жанр: </strong><a href="#">@Model.Genre</a>
+                            <p class="movie_option"><strong>Ограничение по возрасту: </strong>@Model.Rating</p>
+                            <p class="movie_option"><strong>Описание: </strong>@Model.Description</p>
                             <div class="btn1"><button class="btn btn-sm btn-outline-secondary"><span> </span>Купить билеты</button></div>
                         </div>
                         <div class="clearfix"> </div>

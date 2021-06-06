@@ -14,7 +14,9 @@ namespace Cinema.Models
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Session> Sessions { get; set; }
         public DbSet<TicketBooking> TicketBookings { get; set; }
-        public DbSet<Seat> TakenSeats { get; set; }
+        public DbSet<Seat> Seats { get; set; }
+        public DbSet<BookedSeat> BookedSeats { get; set; }
+
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {

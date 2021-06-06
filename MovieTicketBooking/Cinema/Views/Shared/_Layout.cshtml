@@ -31,10 +31,9 @@
                         </li>
                         @{
                             if (User.Identity.IsAuthenticated)
-                            {
-                                
+                            { 
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" id="profile" asp-area="" asp-controller="Home" asp-action="Profile"></a>
+                                    <a class="nav-link text-dark" id="profile" asp-area="" asp-controller="Home" asp-action="Profile">@User.Identity.Name</a>
                                 </li>
                                 <li>
                                     <form method="post" asp-controller="Account" asp-action="Logout">

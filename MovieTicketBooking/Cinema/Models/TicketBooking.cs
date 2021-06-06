@@ -18,7 +18,7 @@ namespace Cinema.Models
         public int SessionId { get; set; }
         public Session Session { get; set; }
 
-        public List<Seat> TakenSeats { get; set; }
+        public List<BookedSeat> BookedSeats { get; set; } = new List<BookedSeat>();
         public int TotalCost { get; set; }
     }
 }

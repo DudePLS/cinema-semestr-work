@@ -4,43 +4,22 @@ using Cinema.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Cinema.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210604140647_locationFix")]
+    partial class locationFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Cinema.Models.BookedSeat", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Row")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TicketId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("seat")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TicketId");
-
-                    b.ToTable("BookedSeats");
-                });
 
             modelBuilder.Entity("Cinema.Models.Cinema1", b =>
                 {
@@ -103,7 +82,10 @@ namespace Cinema.Migrations
                     b.Property<int>("Row")
                         .HasColumnType("int");
 
-                    b.Property<int>("SessionId")
+                    b.Property<int?>("SessionId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TicketId")
                         .HasColumnType("int");
 
                     b.Property<int>("seat")
@@ -113,7 +95,9 @@ namespace Cinema.Migrations
 
                     b.HasIndex("SessionId");
 
-                    b.ToTable("Seats");
+                    b.HasIndex("TicketId");
+
+                    b.ToTable("TakenSeats");
                 });
 
             modelBuilder.Entity("Cinema.Models.Session", b =>
@@ -384,26 +368,19 @@ namespace Cinema.Migrations
                     b.HasDiscriminator().HasValue("User");
                 });
 
-            modelBuilder.Entity("Cinema.Models.BookedSeat", b =>
+            modelBuilder.Entity("Cinema.Models.Seat", b =>
                 {
+                    b.HasOne("Cinema.Models.Session", null)
+                        .WithMany("TakenSeats")
+                        .HasForeignKey("SessionId");
+
                     b.HasOne("Cinema.Models.TicketBooking", "Ticket")
-                        .WithMany("BookedSeats")
+                        .WithMany("TakenSeats")
                         .HasForeignKey("TicketId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Ticket");
-                });
-
-            modelBuilder.Entity("Cinema.Models.Seat", b =>
-                {
-                    b.HasOne("Cinema.Models.Session", "Session")
-                        .WithMany("AvailableSeats")
-                        .HasForeignKey("SessionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Session");
                 });
 
             modelBuilder.Entity("Cinema.Models.Session", b =>
@@ -505,14 +482,14 @@ namespace Cinema.Migrations
 
             modelBuilder.Entity("Cinema.Models.Session", b =>
                 {
-                    b.Navigation("AvailableSeats");
+                    b.Navigation("TakenSeats");
 
                     b.Navigation("TicketBookings");
                 });
 
             modelBuilder.Entity("Cinema.Models.TicketBooking", b =>
                 {
-                    b.Navigation("BookedSeats");
+                    b.Navigation("TakenSeats");
                 });
 
             modelBuilder.Entity("Cinema.Models.User", b =>

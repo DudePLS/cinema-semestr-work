@@ -1,8 +1,8 @@
 ﻿const seatArrangement = document.querySelector('.seat__arrangement');
 const seatCount = document.querySelector('.seat__count');
 const totalCost = document.querySelector('.total__cost');
-const select = document.querySelector('select');
-let seatCost = select.value;
+const cost = document.getElementById('movie');
+let seatCost = cost.value;
 let count;
 
 // Updates Booking Details
@@ -21,12 +21,6 @@ seatArrangement.addEventListener('click', (e) => {
         e.target.classList.toggle('seat-selected');
         updateBookingDetails();
     }
-});
-
-// Sets the seat cost on change of movie select options
-select.addEventListener('change', () => {
-    seatCost = document.querySelector('select').value;
-    updateBookingDetails();
 });
 
 
