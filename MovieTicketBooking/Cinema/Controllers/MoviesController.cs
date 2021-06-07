@@ -12,6 +12,7 @@ using MailKit.Net.Smtp;
 using MimeKit;
 using Microsoft.AspNetCore.Hosting;
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Cinema.Controllers
 {
@@ -85,7 +86,7 @@ namespace Cinema.Controllers
             return View(await sessions.ToListAsync());
         }
 
-       
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Buy(int sessionId, BookingModel model)
