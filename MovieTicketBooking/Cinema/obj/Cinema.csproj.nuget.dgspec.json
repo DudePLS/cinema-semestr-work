@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj": {}
+    "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj": {}
   },
   "projects": {
-    "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj": {
+    "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj",
+        "projectUniqueName": "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj",
         "projectName": "Cinema",
-        "projectPath": "D:\\C# Programs\\Cinema\\Cinema\\Cinema.csproj",
-        "packagesPath": "C:\\Users\\alexm\\.nuget\\packages\\",
-        "outputPath": "D:\\C# Programs\\Cinema\\Cinema\\obj\\",
+        "projectPath": "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\Cinema.csproj",
+        "packagesPath": "C:\\Users\\pc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pc\\Documents\\GitHub\\cinema-semestr-work\\MovieTicketBooking\\Cinema\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\alexm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,9 +43,17 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "MailKit": {
+              "target": "Package",
+              "version": "[2.12.0, )"
+            },
             "Microsoft.AspNet.Identity.Owin": {
               "target": "Package",
               "version": "[2.2.3, )"
+            },
+            "Microsoft.AspNet.WebPages": {
+              "target": "Package",
+              "version": "[3.2.7, )"
             },
             "Microsoft.AspNetCore.Authentication.Google": {
               "target": "Package",
@@ -54,13 +65,17 @@
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             }
           },
           "imports": [
@@ -81,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -84,3 +84,48 @@ body {
     position: absolute;
     right: 15px;
 }
+
+.dl-horizontal dt{
+    white-space:normal;
+}
+
+input,
+select,
+textarea{
+    max-width:280px;
+}
+
+.commentBox {
+    background-color: #efefef;
+    padding: 10px;
+    border-radius: 10px;
+}
+.starFade{
+    background-image: url('/img/StarFade.gif');
+    min-width:30px;
+    min-height:30px;
+    display:inline-block;
+    cursor:pointer;
+}
+
+.starFadeN {
+    background-image: url('/img/StarFade.gif');
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+}
+
+.starGlow {
+    background-image: url('/img/StarGlow.gif');
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.starFadeN {
+    background-image: url('/img/StarGlow.gif');
+    min-width: 30px;
+    min-height: 30px;
+    display: inline-block;
+}

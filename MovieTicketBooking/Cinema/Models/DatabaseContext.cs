@@ -17,10 +17,11 @@ namespace Cinema.Models
         public DbSet<Seat> Seats { get; set; }
         public DbSet<BookedSeat> BookedSeats { get; set; }
 
+        public DbSet<MovieComment> MovieComments { get; set; }
+
         public DatabaseContext(DbContextOptions<DatabaseContext> options)
             : base(options)
         {
-            
         }
     }
 }

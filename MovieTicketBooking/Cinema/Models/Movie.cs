@@ -19,7 +19,9 @@ namespace Cinema.Models
         [Required]
         public string Genre { get; set; }
         [Required,RegularExpression(@"^[1-9]\d*$", ErrorMessage = "Invalid rating format")]
-        public string Rating { get; set; }
+        public int Rating { get; set; }
+
+        public string AgeRating { get; set; }
 
         [Column(TypeName = "Date")]
         [DataType(DataType.Date)]
@@ -28,6 +30,6 @@ namespace Cinema.Models
 
         public List<Session> Sessions { get; set; }
 
-        public ICollection<MovieComment> MovieComments { get; set; }
+        public List<MovieComment> MovieComments { get; set; }
     }
 }

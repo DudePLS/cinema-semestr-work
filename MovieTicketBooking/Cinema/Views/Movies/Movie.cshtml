@@ -1,5 +1,15 @@
-﻿@model Movie
-
+﻿@using Cinema.ViewModels
+@model MovieCommentViewModel
+@{ 
+    var ratingSum = ViewBag.RatingSum;
+    var ratingCount = ViewBag.RatingCount;
+    decimal rating = 0;
+    if (ratingCount > 0)
+    {
+        rating = (ratingSum / ratingCount);
+    }
+    var totalRating = decimal.Parse(rating.ToString());
+}
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -29,14 +39,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="grid images_3_of_2">
                             <div class="movie_image">
                                 <span class="movie_rating">5.0</span>
-                                <img src="images/single.jpg" class="img-responsive" alt="" />
+                                <img src="data:image/jpeg;base64,@(Convert.ToBase64String(@Model.Movie.Image))" class="img-responsive" alt="" />
                             </div>
                         </div>
                         <div class="desc1 span_3_of_2">
-                            <p class="movie_option"><strong>Дата выхода: </strong>@Html.DisplayFor(model => model.ReleaseDate)</p>
-                            <p class="movie_option"><strong>Жанр: </strong><a href="#">@Model.Genre</a>
-                            <p class="movie_option"><strong>Ограничение по возрасту: </strong>@Model.Rating</p>
-                            <p class="movie_option"><strong>Описание: </strong>@Model.Description</p>
+                            <p class="movie_option"><strong>Дата выхода: </strong>@Html.DisplayFor(model => model.Movie.ReleaseDate)</p>
+                            <p class="movie_option"><strong>Жанр: </strong><a href="#">@Model.Movie.Genre</a>
+                            <p class="movie_option"><strong>Ограничение по возрасту: </strong>@Model.Movie.Rating</p>
+                            <p class="movie_option"><strong>Описание: </strong>@Model.Movie.Description</p>
                             <div class="btn1"><button class="btn btn-sm btn-outline-secondary"><span> </span>Купить билеты</button></div>
                         </div>
                         <div class="clearfix"> </div>
@@ -63,5 +73,96 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+
+    <div>
+        <span class="starFadeN" id="sRate1"></span><span class="starFadeN" id="sRate2"></span><span class="starFadeN" id="sRate3"></span><span class="starFadeN" id="sRate4"></span><span class="starFadeN" id="sRate5"></span>
+    </div>
+    @foreach (var c in Model.Comments)
+            {
+                <hr />
+                <div class="row">
+                    <div class="col-md-3">
+                        <i>@c.PublishDate</i>
+                        <br />
+                        @for (var i = 1; i <= c.StarRating; i++)
+                        {
+                            <span class="starFadeN"></span>
+                        }
+                        @for (var i = (c.StarRating + 1); i <= 5; i++)
+                        {
+                            <span class="starGlowN"></span>
+                        }
+                    </div>
+                    <div class="col-md-9">
+                        @Html.Raw(c.Comment.Replace("\n","<br />"))
+                    </div>
+                </div>
+            }
+    <hr />
+    <partial name="_CommentBox" />
+
+    <script>
+        function SCRate() {
+            for (var i = 1; i <=@totalRating; i++) {
+                $("#sRate" + i).attr('class', 'starGlowN');
+            }
+        }
+        $(function () {
+            SCRate();
+        });
+        
+    </script>
+
+    <style>
+        .body-content{
+            padding-left:15px;
+            padding-right:15px;
+        }
+        .dl-horizontal dt {
+            white-space: normal;
+        }
+
+        input,
+        select,
+        textarea {
+            max-width: 280px;
+        }
+
+        .commentBox {
+            background-color: #efefef;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .starFade {
+            background-image: url('/img/StarFade.gif');
+            min-width: 30px;
+            min-height: 30px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .starFadeN {
+            background-image: url('/img/StarFade.gif');
+            min-width: 30px;
+            min-height: 30px;
+            display: inline-block;
+        }
+
+        .starGlow {
+            background-image: url('/img/StarGlow.gif');
+            min-width: 30px;
+            min-height: 30px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .starFadeN {
+            background-image: url('/img/StarGlow.gif');
+            min-width: 30px;
+            min-height: 30px;
+            display: inline-block;
+        }
+    </style>
 </body>
 </html>
