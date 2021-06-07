@@ -12,9 +12,13 @@ namespace Cinema.Models
     {
         [Key]
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [MaxLength(400,ErrorMessage = "Description must contain maximum 400 characters")]
         public string Description { get; set; }
+        [Required]
         public string Genre { get; set; }
+        [Required,RegularExpression(@"^[1-9]\d*$", ErrorMessage = "Invalid rating format")]
         public string Rating { get; set; }
 
         [Column(TypeName = "Date")]
@@ -23,5 +27,7 @@ namespace Cinema.Models
         public byte[] Image { get; set; }
 
         public List<Session> Sessions { get; set; }
+
+        public ICollection<MovieComment> MovieComments { get; set; }
     }
 }
