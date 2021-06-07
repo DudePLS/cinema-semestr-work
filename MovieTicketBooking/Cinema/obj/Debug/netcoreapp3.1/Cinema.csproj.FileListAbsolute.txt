@@ -283,7 +283,6 @@ C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\D
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\MimeKit.dll
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
-C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Details.cshtml.g.cs
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_CommentBox.cshtml.g.cs
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\Humanizer.dll
 C:\Users\pc\Documents\GitHub\cinema-semestr-work\MovieTicketBooking\Cinema\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll

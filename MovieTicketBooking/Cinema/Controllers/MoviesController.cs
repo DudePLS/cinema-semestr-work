@@ -11,6 +11,7 @@ using System.Web.Helpers;
 using MailKit.Net.Smtp;
 using MimeKit;
 using Microsoft.AspNetCore.Hosting;
+using System.Text;
 
 namespace Cinema.Controllers
 {
@@ -59,31 +60,20 @@ namespace Cinema.Controllers
             }
             return View(vm);
         }
-        /*public async Task<IActionResult> Movie(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var movie = await _context.Movies.FindAsync(id);
-            if (movie == null)
-            {
-                return NotFound();
-            }
-            return View(movie);
-        }*/
+       
 
         public IActionResult Session(int? id, BookingModel bm)
         {
             var session = _context.Sessions.Include(s => s.AvailableSeats).FirstOrDefault(s => s.Id == id);
             bm.session = session;
-            
-            for(int i = 0; i < 9; i++)
+            for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    bm.seats.Add(new SeatVM { row = i+1, seat = j+1 });
+                    if (session.AvailableSeats.FirstOrDefault(s => s.Row == i + 1 && s.seat == j + 1) != null)
+                    {
+                        bm.seats.Add(new SeatVM { row = i + 1, seat = j + 1 });
+                    }
                 }
             }
             return View(bm);
@@ -91,7 +81,7 @@ namespace Cinema.Controllers
 
         public async Task<IActionResult> Schedule(int? id)
         {
-            var sessions = _context.Sessions.Where(s => s.MovieId == id);
+            var sessions = _context.Sessions.Where(s => s.MovieId == id).Include(s => s.Movie).Include(s => s.Cinema);
             return View(await sessions.ToListAsync());
         }
 
@@ -103,7 +93,8 @@ namespace Cinema.Controllers
             Session session = _context.Sessions.FirstOrDefault(s => s.Id == sessionId);
             User user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
             TicketBooking ticket = new TicketBooking { UserId = user.Id, User = user,Session = session, SessionId = sessionId };
-            foreach(var seat in model.seats)
+            var movie = _context.Movies.FirstOrDefault(m => m.Id == ticket.Session.MovieId);
+            foreach (var seat in model.seats)
             {
                 if (seat.selected)
                 {
@@ -113,13 +104,10 @@ namespace Cinema.Controllers
                     _context.Seats.Remove(remseat);
                 }
             }
+
+   
             await _context.SaveChangesAsync();
-
-
-            var a = _context.TicketBookings.Include(s => s.BookedSeats).FirstOrDefault(t => t.UserId==user.Id && sessionId == session.Id);
-            
-            //ViewBag.msg = "Билеты отправлены на email";
-
+            var a = _context.TicketBookings.Include(s => s.BookedSeats).FirstOrDefault(t => t.UserId == user.Id && sessionId == session.Id);
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com", 465, true);
@@ -127,7 +115,7 @@ namespace Cinema.Controllers
 
             MimeMessage message = new MimeMessage();
 
-            MailboxAddress from = new MailboxAddress("Admin",
+            MailboxAddress from = new MailboxAddress("Cinema",
             "admin@example.com");
             message.From.Add(from);
 
@@ -135,18 +123,23 @@ namespace Cinema.Controllers
             user.Email);
             message.To.Add(to);
 
-            string subject = "Билеты в кино на " + ticket.Session.Movie.Name;
-            string body = session.Movie.Name + a.BookedSeats.Count() + a.BookedSeats.ToList()[0].Row;
+            string subject = "Билеты в кино на фильм " + movie.Name;
+
             message.Subject = subject;
             BodyBuilder bodyBuilder = new BodyBuilder();
-            bodyBuilder.HtmlBody = "<h1>Hello World!</h1>";
-            bodyBuilder.TextBody = body;
+            StringBuilder sb = new StringBuilder();
+            foreach (var seat in ticket.BookedSeats)
+            {
+                sb.Append($"Ряд: {seat.Row}, Место: {seat.seat} \n");
+            }
+           sb.Append($"Кинотеатр № {ticket.Session.CinemaId}\nДата:{ticket.Session.Date.ToString("d")}\nВремя:{ticket.Session.Time} \n");
+            bodyBuilder.TextBody = sb.ToString();
             message.Body = bodyBuilder.ToMessageBody();
 
             client.Send(message);
             client.Disconnect(true);
             client.Dispose();
-
+            ViewBag.msg = "Билеты отправлены на email";
             return RedirectToAction("Profile", "Home");
         }
     }

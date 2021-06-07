@@ -29,9 +29,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Акции и скидки</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Chat">Чат</a>
+                        </li>
                         @{
                             if (User.Identity.IsAuthenticated)
-                            { 
+                            {
                                 <li class="nav-item">
                                     <a class="nav-link text-dark" id="profile" asp-area="" asp-controller="Home" asp-action="Profile">@User.Identity.Name</a>
                                 </li>

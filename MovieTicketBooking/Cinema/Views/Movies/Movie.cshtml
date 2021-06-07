@@ -1,6 +1,6 @@
 ﻿@using Cinema.ViewModels
 @model MovieCommentViewModel
-@{ 
+@{
     var ratingSum = ViewBag.RatingSum;
     var ratingCount = ViewBag.RatingCount;
     decimal rating = 0;
@@ -49,59 +49,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <p class="movie_option"><strong>Описание: </strong>@Model.Movie.Description</p>
                             <div class="btn1"><button class="btn btn-sm btn-outline-secondary"><span> </span>Купить билеты</button></div>
                         </div>
-                        <div class="clearfix"> </div>
-                        <p class="m_4">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-                        <form method="post" action="contact-post.html">
-                            <div class="to">
-                                <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
-                                <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:3%">
-                            </div>
-                            <div class="text">
-                                <textarea value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
-                            </div>
-                            <div class="form-submit1">
-                                <input name="submit" type="submit" id="submit" value="Submit Your Message"><br>
-                            </div>
-                            <div class="clearfix"></div>
-                        </form>
+
                     </div>
                     <div class="col-md-3">
-                        
+
                     </div>
-                    <div class="clearfix"> </div>
+
                 </div>
+
             </div>
         </div>
     </div>
-
-    <div>
-        <span class="starFadeN" id="sRate1"></span><span class="starFadeN" id="sRate2"></span><span class="starFadeN" id="sRate3"></span><span class="starFadeN" id="sRate4"></span><span class="starFadeN" id="sRate5"></span>
-    </div>
-    @foreach (var c in Model.Comments)
-            {
-                <hr />
-                <div class="row">
-                    <div class="col-md-3">
-                        <i>@c.PublishDate</i>
-                        <br />
-                        @for (var i = 1; i <= c.StarRating; i++)
-                        {
-                            <span class="starFadeN"></span>
-                        }
-                        @for (var i = (c.StarRating + 1); i <= 5; i++)
-                        {
-                            <span class="starGlowN"></span>
-                        }
-                    </div>
-                    <div class="col-md-9">
-                        @Html.Raw(c.Comment.Replace("\n","<br />"))
-                    </div>
-                </div>
-            }
+</body>
+@{//<div>
+    //  <span class="starFadeN" id="sRate1"></span><span class="starFadeN" id="sRate2"></span><span class="starFadeN" id="sRate3"></span><span class="starFadeN" id="sRate4"></span><span class="starFadeN" id="sRate5"></span>
+    //</div>
+}
+@foreach (var c in Model.Comments)
+{
     <hr />
-    <partial name="_CommentBox" />
+    <div class="row">
+        <div class="col-md-3">
+            <i>@c.PublishDate</i>
+            <br />
+            @for (var i = 1; i <= c.StarRating; i++)
+            {
+                <span class="starFadeN"></span>
+            }
+            @for (var i = (c.StarRating + 1); i <= 5; i++)
+            {
+                <span class="starGlowN"></span>
+            }
+        </div>
+        <div class="col-md-9">
+            @Html.Raw(c.Comment.Replace("\n", "<br />"))
+        </div>
+    </div>
+}
+<hr />
+<partial name="_CommentBox" />
 
-    <script>
+
+<script>
         function SCRate() {
             for (var i = 1; i <=@totalRating; i++) {
                 $("#sRate" + i).attr('class', 'starGlowN');
@@ -110,59 +99,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         $(function () {
             SCRate();
         });
-        
-    </script>
 
-    <style>
-        .body-content{
-            padding-left:15px;
-            padding-right:15px;
-        }
-        .dl-horizontal dt {
-            white-space: normal;
-        }
+</script>
 
-        input,
-        select,
-        textarea {
-            max-width: 280px;
-        }
+<style>
+    .body-content {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
-        .commentBox {
-            background-color: #efefef;
-            padding: 10px;
-            border-radius: 10px;
-        }
+    .dl-horizontal dt {
+        white-space: normal;
+    }
 
-        .starFade {
-            background-image: url('/img/StarFade.gif');
-            min-width: 30px;
-            min-height: 30px;
-            display: inline-block;
-            cursor: pointer;
-        }
+    input,
+    select,
+    textarea {
+        max-width: 280px;
+    }
 
-        .starFadeN {
-            background-image: url('/img/StarFade.gif');
-            min-width: 30px;
-            min-height: 30px;
-            display: inline-block;
-        }
+    .commentBox {
+        background-color: #efefef;
+        padding: 10px;
+        border-radius: 10px;
+    }
 
-        .starGlow {
-            background-image: url('/img/StarGlow.gif');
-            min-width: 30px;
-            min-height: 30px;
-            display: inline-block;
-            cursor: pointer;
-        }
+    .starFade {
+        background-image: url('/img/StarFade.gif');
+        min-width: 30px;
+        min-height: 30px;
+        display: inline-block;
+        cursor: pointer;
+    }
 
-        .starFadeN {
-            background-image: url('/img/StarGlow.gif');
-            min-width: 30px;
-            min-height: 30px;
-            display: inline-block;
-        }
-    </style>
-</body>
+    .starFadeN {
+        background-image: url('/img/StarFade.gif');
+        min-width: 30px;
+        min-height: 30px;
+        display: inline-block;
+    }
+
+    .starGlow {
+        background-image: url('/img/StarGlow.gif');
+        min-width: 30px;
+        min-height: 30px;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .starFadeN {
+        background-image: url('/img/StarGlow.gif');
+        min-width: 30px;
+        min-height: 30px;
+        display: inline-block;
+    }
+</style>
 </html>

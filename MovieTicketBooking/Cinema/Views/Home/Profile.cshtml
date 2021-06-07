@@ -73,7 +73,17 @@
                     </div>    
                     
                     <div class="tab-pane fade" id="tickets">
-                       
+                        @{
+                            foreach (var ticket in Model.Tickets)
+                            {
+                                <a>Сеанс: @ticket.Session.Date.ToString("d")  Время: @ticket.Session.Time  Зал: @ticket.Session.Hall</a><br />
+                                foreach (var seat in ticket.BookedSeats)
+                                {
+                                    <a>Ряд: @seat.Row Место: @seat.seat</a> <br />
+                                }
+                                <br />
+                            }
+                        }
                     </div>
                 </div>
             </div>

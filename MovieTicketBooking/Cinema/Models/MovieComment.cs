@@ -7,7 +7,7 @@ namespace Cinema.Models
         public int Id { get; set; }
         
         public string Comment { get; set; }
-       
+        
         public DateTime PublishDate { get; set; }
         
         public int MovieId { get; set; }
